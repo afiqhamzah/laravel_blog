@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Insert new post</div>
                 <div class="panel-body">
-                    <form class="form" action="{{ url('/post/update') }}" method="post">
+                    <form class="form" action="{{ route('post.update', [$post -> id]) }}" method="post">
                       {{ csrf_field() }}
                       <div class="form-group">
                         <label for="title">Title</label>

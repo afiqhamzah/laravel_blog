@@ -59,4 +59,16 @@ class PostController extends Controller
 
       return view('postEdit', compact('post'));
     }
+
+    public function updatePost($id, Request $request ) {
+      $title = $request->input('title');
+      $story = $request->input('story');
+      $post = Post::find($id);
+      //$post -> user_id = Auth::user() -> id;
+      $post -> title = $title;
+      $post -> story = $story;
+      $post -> save();
+
+      return redirect() -> route('post.index') -> withSuccess("Post updates successfully");
+    }
 }
