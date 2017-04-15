@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/post', ['as' => 'post.index', 'uses' => 'PostController@showAllPosts']);
+Route::get('/post/create', ['as' => 'post.create', 'uses' => 'PostController@createPost']);
+Route::post('/post/insert', ['as' => 'post.insert', 'uses' => 'PostController@insertPost']);
+Route::get('/post/delete/{id}', ['as' => 'post.delete', 'uses' => 'PostController@deletePost']);
+Route::get('/post/edit/{id}', ['as' => 'post.edit', 'uses' => 'PostController@editPost']);
+Route::post('/post/update/{id}', ['as' => 'post.update', 'uses' => 'PostController@updatePost']);
